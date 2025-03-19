@@ -1,3 +1,4 @@
+import path from 'path';
 /* eslint-disable import/no-extraneous-dependencies */
 import { reactRouter } from '@react-router/dev/vite';
 import tailwindcss from '@tailwindcss/vite';
@@ -49,5 +50,10 @@ export default defineConfig({
   },
   server: {
     open: true,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
 });

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitLab Activity Analyzer</title>
+  <script>
+    // Prevent any theme attributes from being added during initial HTML render
+    (function() {
+      try {
+        // Use a non-visible attribute instead of class/data-theme for the initial state
+        var theme = localStorage.getItem('theme-preference') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        // Store in a data attribute that won't cause visual changes
+        document.documentElement.setAttribute('data-initial-theme', theme);
+      } catch (e) {
+        console.error('Failed to determine initial theme', e);
+      }
+    })();
+  </script>
+  <script>
+    // Debugging and cleanup script
+    (function() {
+      console.log("index.html script running");
+      
+      // Helper function to log DOM state
+      function logBodyState() {
+        if (document.body) {
+          console.log("Body attributes:", 
+            Array.from(document.body.attributes).map(attr => attr.name + "=" + attr.value).join(", "));
+        } else {
+          console.log("Body not available yet");
+        }
+      }
+      
+      // Log initial state
+      logBodyState();
+      
+      // Clean up body when it becomes available
+      function cleanupBody() {
+        if (document.body && document.body.hasAttribute('cz-shortcut-listen')) {
+          console.log("Removing cz-shortcut-listen in index.html script");
+          document.body.removeAttribute('cz-shortcut-listen');
+          logBodyState();
+        }
+      }
+      
+      // Try cleaning up now and after a delay
+      cleanupBody();
+      setTimeout(cleanupBody, 0);
+      
+      // Set up observer to watch for attribute changes on body
+      if (typeof MutationObserver !== 'undefined') {
+        document.addEventListener('DOMContentLoaded', () => {
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (mutation.type === 'attributes' && 
+                  mutation.target === document.body && 
+                  mutation.attributeName === 'cz-shortcut-listen') {
+                console.log("MutationObserver: Preventing cz-shortcut-listen");
+                document.body.removeAttribute('cz-shortcut-listen');
+              }
+            });
+          });
+          
+          observer.observe(document.body, { attributes: true });
+        });
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

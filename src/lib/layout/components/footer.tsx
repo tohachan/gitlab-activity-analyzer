@@ -3,14 +3,7 @@ export const Footer = () => {
     <footer className="wrapper">
       <div className="flex">
         <p className="text-xs">
-          {new Date().getFullYear()} -{' '}
-          <a
-            href="https://agustinusnathaniel.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            agustinusnathaniel.com
-          </a>
+          {new Date().getFullYear()} - <span>tohachan</span>
         </p>
       </div>
     </footer>

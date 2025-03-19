@@ -1,0 +1,27 @@
+/* Base theme styles */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme (default) */
+html,
+html[data-theme="light"] {
+  /* Your light theme variables here */
+  --background: #ffffff;
+  --foreground: #000000;
+  color-scheme: light;
+}
+
+/* Dark theme */
+html[data-theme="dark"] {
+  /* Your dark theme variables here */
+  --background: #000000;
+  --foreground: #ffffff;
+  color-scheme: dark;
+}
+
+/* Apply the theme variables */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
