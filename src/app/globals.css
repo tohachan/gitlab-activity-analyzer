@@ -1,0 +1,24 @@
+/* Add this to your existing CSS file */
+.recharts-legend-item {
+  transition: all 0.3s ease-in-out;
+}
+
+.recharts-legend-item-text {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Add stronger specificity to override any conflicting styles */
+.recharts-default-legend .recharts-legend-item {
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Add styling for highlighted and non-highlighted states */
+.recharts-legend-item.highlighted {
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3)) !important;
+}
+
+.recharts-legend-item.blurred {
+  opacity: 0.4 !important;
+  filter: blur(4px) !important;
+}

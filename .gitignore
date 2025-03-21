@@ -24,6 +24,11 @@ coverage/
 # ESLint
 .eslintcache
 
+# Stats files
+src/data
 
 # React Router
 .react-router
+
+# Env file
+.env

@@ -58,8 +58,8 @@
   }
 
   .wrapper {
-    @apply mx-auto p-6 sm:p-8;
-    max-width: 48rem;
+    @apply w-full p-6 sm:p-8;
+    /* max-width: 48rem; */
   }
 }
 
@@ -190,7 +190,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    font-size: 14px;
+  }
   body {
+    @apply font-sans text-sm text-muted-foreground;
     @apply bg-background text-foreground;
   }
 }
