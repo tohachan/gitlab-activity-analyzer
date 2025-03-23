@@ -10,7 +10,7 @@ export function mergeAuthors(authorGroups: string[][] = [], excludeAuthors: stri
     // Clone the input data to avoid modifying the original
     const clonedData = JSON.parse(JSON.stringify(dataObj));
     const { data, authors, config } = clonedData;
-    const mergedData = [];
+    const mergedData: Array<Record<string, number | string>> = [];
     const newAuthors = new Set<string>();
 
     const nameMap = new Map<string, string>();
@@ -33,9 +33,9 @@ export function mergeAuthors(authorGroups: string[][] = [], excludeAuthors: stri
     });
 
     // Add remaining authors who aren't in groups or excluded
-    authors.forEach(author => {
+    authors.forEach((author: string) => {
       if (!nameMap.has(author) && !excludeAuthors.includes(author)) {
-        newAuthors.add(author);
+      newAuthors.add(author);
       }
     });
 

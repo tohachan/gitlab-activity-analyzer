@@ -5,8 +5,8 @@ const APP_NAME = 'vite-react-tailwind-starter';
 export const Meta = () => {
   return (
     <Helmet>
-      <title>Vite React Tailwind Starter</title>
-      <meta name="description" content="Vite React Tailwind Starter Template" />
+      <title>Gilab activity analyzer</title>
+      <meta name="description" content="Gilab activity analyzer" />
 
       <meta name="application-name" content={APP_NAME} />
       <meta name="apple-mobile-web-app-capable" content="yes" />

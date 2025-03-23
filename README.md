@@ -2,6 +2,8 @@
 
 A tool for analyzing and visualizing GitLab repository contributions over time.
 
+![GitLab Activity Analyzer Screenshot](public/assets/screenshot.jpeg)
+
 ## Features
 
 - Pull commit statistics from GitLab repositories
